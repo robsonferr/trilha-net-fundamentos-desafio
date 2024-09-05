@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -21,7 +23,9 @@ namespace DesafioFundamentos.Models
             if (this.EstaCheio)
             {
                 Console.WriteLine("Infelizmente o estacionamento já está cheio!");
-            } else {
+            }
+            else
+            {
                 string placa;
                 do
                 {
@@ -76,9 +80,10 @@ namespace DesafioFundamentos.Models
             // Verifica se há veículos no estacionamento
             if (veiculos.Any())
             {
-                Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
+                var estacionados = new StringBuilder($"Os veículos estacionados são: {Environment.NewLine}");
+                foreach (var veiculo in this.veiculos)
+                    estacionados.AppendLine(veiculo.Placa);
+                Console.WriteLine(estacionados.ToString());
             }
             else
             {
